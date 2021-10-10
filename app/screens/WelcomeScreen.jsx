@@ -1,7 +1,22 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  ToastAndroid,
+  View,
+} from 'react-native';
+import AppButton from '../components/AppButton';
 
 export default function WelcomeScreen() {
+  function onLogin() {
+    ToastAndroid.show('THIS IS LOGIN', ToastAndroid.SHORT);
+  }
+  function onSignUp() {
+    ToastAndroid.show('THIS IS SIGNUP', ToastAndroid.SHORT);
+  }
+
   return (
     <ImageBackground
       style={styles.background}
@@ -15,21 +30,12 @@ export default function WelcomeScreen() {
         <Text>Sell You don't anymore</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <View
-          style={{
-            ...styles.button,
-            backgroundColor: 'red',
-          }}
-        >
-          <Text>Hello</Text>
-        </View>
-        <View
-          style={{
-            ...styles.button,
-          }}
-        >
-          <Text>Hi</Text>
-        </View>
+        <AppButton title='LOGIN' onPress={onLogin} style={styles.loginButton} />
+        <AppButton
+          title='SIGNUP'
+          onPress={onSignUp}
+          style={styles.signUpButton}
+        />
       </View>
     </ImageBackground>
   );
@@ -41,6 +47,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    padding: 10,
   },
   image: {
     width: '100%',
@@ -50,7 +57,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '20%',
     alignItems: 'center',
-    // left: '30%',
   },
   logoImage: {
     width: 70,
@@ -63,10 +69,11 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     width: '100%',
   },
-  button: {
-    backgroundColor: 'blue',
-    width: '100%',
-    height: 50,
-    alignItems: 'center',
+  loginButton: {
+    marginBottom: 10,
+  },
+  signUpButton: {
+    marginBottom: 10,
+    backgroundColor: 'red',
   },
 });
