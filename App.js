@@ -11,12 +11,16 @@ import Constants from 'expo-constants';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ImageViewScreen from './app/screens/ImageViewScreen';
 import AppButton from './app/components/AppButton';
+import AppCard from './app/components/AppCard';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <WelcomeScreen />
+      {/* <WelcomeScreen /> */}
       {/* <ImageViewScreen /> */}
+      <AppCard />
+      <AppCard />
+      <AppCard />
       <StatusBar style='dark' />
     </SafeAreaView>
   );
@@ -25,10 +29,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f8f4f4',
     paddingTop: Constants.statusBarHeight,
-    // padding: 10,
+    padding: 20,
     // alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
 });
