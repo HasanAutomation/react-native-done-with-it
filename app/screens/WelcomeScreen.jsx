@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
           style={styles.logoImage}
           source={require('../assets/images/logo-red.png')}
         />
-        <Text>Sell You don't anymore</Text>
+        <Text style={styles.heading}>Sell You don't need anymore</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title='LOGIN' onPress={onLogin} style={styles.loginButton} />
@@ -71,6 +71,9 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginBottom: 10,
+  },
+  heading: {
+    fontSize: 21,
   },
   signUpButton: {
     marginBottom: 10,

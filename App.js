@@ -12,17 +12,22 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import ImageViewScreen from './app/screens/ImageViewScreen';
 import AppButton from './app/components/AppButton';
 import AppCard from './app/components/AppCard';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      {/* <ImageViewScreen /> */}
-      <AppCard />
-      <AppCard />
-      <AppCard />
-      <StatusBar style='dark' />
-    </SafeAreaView>
+    // <SafeAreaView style={styles.container}>
+    //   {/* <WelcomeScreen /> */}
+    //   {/* <ImageViewScreen /> */}
+    //   {/* <ListingDetailsScreen /> */}
+    //   <AppCard />
+    //   <StatusBar style='dark' />
+    // </SafeAreaView>
+    <>
+      {/* <ListingDetailsScreen /> */}
+      <WelcomeScreen />
+      <StatusBar style='auto' />
+    </>
   );
 }
 

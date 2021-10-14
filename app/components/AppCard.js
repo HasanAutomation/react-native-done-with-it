@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     minHeight: 250,
     shadowOpacity: 0.8,
     shadowOffset: { width: 0, height: 3 },
-    elevation: 8,
+    elevation: 2,
     borderRadius: 10,
     overflow: 'hidden',
     marginBottom: 10,
