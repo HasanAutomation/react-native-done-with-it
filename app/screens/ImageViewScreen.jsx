@@ -1,17 +1,18 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import colors from '../config/colors';
 
 export default function ImageViewScreen() {
   return (
     <View style={styles.imageViewContainer}>
       <View style={styles.actionsContainer}>
-        <View
-          style={{
-            ...styles.actionButton,
-            backgroundColor: 'red',
-          }}
-        ></View>
-        <View style={{ ...styles.actionButton }}></View>
+        <MaterialCommunityIcons name='close' color='white' size={30} />
+        <MaterialCommunityIcons
+          name='trash-can-outline'
+          color='red'
+          size={30}
+        />
       </View>
       <Image
         resizeMode='contain'
@@ -25,20 +26,16 @@ export default function ImageViewScreen() {
 const styles = StyleSheet.create({
   imageViewContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: colors.black,
   },
   actionsContainer: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingTop: 10,
-  },
-  actionButton: {
-    width: 30,
-    height: 30,
-    backgroundColor: 'blue',
+    paddingTop: 40,
+    paddingHorizontal: 20,
   },
   image: {
     width: '100%',
-    height: '100%',
+    height: '80%',
   },
 });
