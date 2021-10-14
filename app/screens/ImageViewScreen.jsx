@@ -15,7 +15,11 @@ export default function ImageViewScreen() {
           size={30}
         />
       </View>
-      <ZoomImage uri={require('../assets/images/chair.jpg')} mode='contain' />
+      <ZoomImage
+        uri={require('../assets/images/chair.jpg')}
+        mode='contain'
+        style={{ height: '80%' }}
+      />
     </View>
   );
 }
