@@ -17,21 +17,21 @@ import MessagesScreen from './app/screens/MessagesScreen';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      {/* <ImageViewScreen /> */}
-      {/* <ListingDetailsScreen /> */}
-      {/* <AppCard /> */}
-      <MessagesScreen />
-      <StatusBar style='auto' />
-    </SafeAreaView>
-    // <>
-    //   <ListingDetailsScreen />
-    //   <WelcomeScreen />
-    //   <ImageViewScreen />
+    // <SafeAreaView style={styles.container}>
+    //   {/* <WelcomeScreen /> */}
+    //   {/* <ImageViewScreen /> */}
+    //   {/* <ListingDetailsScreen /> */}
+    //   {/* <AppCard /> */}
     //   <MessagesScreen />
     //   <StatusBar style='auto' />
-    // </>
+    // </SafeAreaView>
+    <>
+      {/* <ListingDetailsScreen /> */}
+      {/* <WelcomeScreen /> */}
+      {/* <ImageViewScreen /> */}
+      <MessagesScreen />
+      <StatusBar style='auto' />
+    </>
   );
 }
 
