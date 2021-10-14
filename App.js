@@ -24,8 +24,8 @@ export default function App() {
     //   <StatusBar style='dark' />
     // </SafeAreaView>
     <>
-      {/* <ListingDetailsScreen /> */}
-      <WelcomeScreen />
+      <ListingDetailsScreen />
+      {/* <WelcomeScreen /> */}
       <StatusBar style='auto' />
     </>
   );
