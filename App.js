@@ -13,22 +13,25 @@ import ImageViewScreen from './app/screens/ImageViewScreen';
 import AppButton from './app/components/AppButton';
 import AppCard from './app/components/AppCard';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import MessagesScreen from './app/screens/MessagesScreen';
 
 export default function App() {
   return (
-    // <SafeAreaView style={styles.container}>
-    //   {/* <WelcomeScreen /> */}
-    //   {/* <ImageViewScreen /> */}
-    //   {/* <ListingDetailsScreen /> */}
-    //   <AppCard />
-    //   <StatusBar style='dark' />
-    // </SafeAreaView>
-    <>
-      {/* <ListingDetailsScreen /> */}
+    <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
-      <ImageViewScreen />
+      {/* <ImageViewScreen /> */}
+      {/* <ListingDetailsScreen /> */}
+      {/* <AppCard /> */}
+      <MessagesScreen />
       <StatusBar style='auto' />
-    </>
+    </SafeAreaView>
+    // <>
+    //   <ListingDetailsScreen />
+    //   <WelcomeScreen />
+    //   <ImageViewScreen />
+    //   <MessagesScreen />
+    //   <StatusBar style='auto' />
+    // </>
   );
 }
 

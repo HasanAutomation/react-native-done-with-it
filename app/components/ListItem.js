@@ -8,7 +8,9 @@ export default function ListItem({ image, title, subTitle }) {
       <Image source={image} style={styles.image} resizeMode='cover' />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subTitle}>{subTitle}</Text>
+        <Text numberOfLines={1} style={styles.subTitle}>
+          {subTitle}
+        </Text>
       </View>
     </View>
   );
