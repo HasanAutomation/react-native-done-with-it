@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
+import ZoomImage from '../components/ZoomImage';
 
 export default function ImageViewScreen() {
   return (
@@ -14,11 +15,7 @@ export default function ImageViewScreen() {
           size={30}
         />
       </View>
-      <Image
-        resizeMode='contain'
-        style={styles.image}
-        source={require('../assets/images/chair.jpg')}
-      />
+      <ZoomImage uri={require('../assets/images/chair.jpg')} mode='contain' />
     </View>
   );
 }
@@ -33,9 +30,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 40,
     paddingHorizontal: 20,
-  },
-  image: {
-    width: '100%',
-    height: '80%',
   },
 });
