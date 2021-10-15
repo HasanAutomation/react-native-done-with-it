@@ -1,18 +1,37 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import colors from '../config/colors';
 
-export default function ListItem({ image, title, subTitle }) {
+export default function ListItem({
+  image,
+  title,
+  subTitle,
+  onPress,
+  onLongPress,
+}) {
   return (
-    <View style={styles.container}>
-      <Image source={image} style={styles.image} resizeMode='cover' />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text numberOfLines={1} style={styles.subTitle}>
-          {subTitle}
-        </Text>
+    <TouchableHighlight
+      underlayColor={colors.light}
+      onPress={onPress}
+      onLongPress={onLongPress}
+    >
+      <View style={styles.container}>
+        <Image source={image} style={styles.image} resizeMode='cover' />
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text numberOfLines={1} style={styles.subTitle}>
+            {subTitle}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 }
 

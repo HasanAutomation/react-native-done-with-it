@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, FlatList, View } from 'react-native';
 import ListItem from '../components/ListItem';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
+import colors from '../config/colors';
 
 const messages = [
   {
@@ -27,17 +28,30 @@ const messages = [
 ];
 
 export default function MessagesScreen() {
+  const [selectedIds, setSelectedIds] = useState([]);
+
+  const selectItem = id => {
+    setSelectedIds([...selectedIds, id]);
+  };
+  const deSelectItem = itemId => {
+    setSelectedIds(selectedIds.filter(id => id !== itemId));
+  };
+
   return (
     <Screen>
       <FlatList
         data={messages}
         keyExtractor={message => message.id.toString()}
         renderItem={({ item }) => (
-          <ListItem
-            title={item.title}
-            subTitle={item.description}
-            image={item.image}
-          />
+          <View style={selectedIds.includes(item.id) && styles.highlighted}>
+            <ListItem
+              title={item.title}
+              subTitle={item.description}
+              image={item.image}
+              onLongPress={() => selectItem(item.id)}
+              onPress={() => deSelectItem(item.id)}
+            />
+          </View>
         )}
         ItemSeparatorComponent={ListItemSeparator}
       />
@@ -45,4 +59,8 @@ export default function MessagesScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  highlighted: {
+    backgroundColor: colors.light,
+  },
+});
