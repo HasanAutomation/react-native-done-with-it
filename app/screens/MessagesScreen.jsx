@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 import ListItem from '../components/ListItem';
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
@@ -25,6 +26,54 @@ const messages = [
     description: 'This is an important description',
     image: require('../assets/images/jacket.jpg'),
   },
+  {
+    id: 4,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 5,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 6,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 7,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 8,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 9,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 10,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
+  {
+    id: 11,
+    title: 'Important',
+    description: 'This is an important description',
+    image: require('../assets/images/jacket.jpg'),
+  },
 ];
 
 export default function MessagesScreen() {
@@ -35,6 +84,10 @@ export default function MessagesScreen() {
   };
   const deSelectItem = itemId => {
     setSelectedIds(selectedIds.filter(id => id !== itemId));
+  };
+
+  const onMessageDelete = () => {
+    console.log('Pressed');
   };
 
   return (
@@ -50,6 +103,9 @@ export default function MessagesScreen() {
               image={item.image}
               onLongPress={() => selectItem(item.id)}
               onPress={() => deSelectItem(item.id)}
+              renderRightActions={() => (
+                <ListItemDeleteAction onPress={onMessageDelete} />
+              )}
             />
           </View>
         )}
