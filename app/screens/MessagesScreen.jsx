@@ -77,19 +77,20 @@ const messages = [
 ];
 
 export default function MessagesScreen() {
-  const [selectedIds, setSelectedIds] = useState([]);
   const [messageItems, setMessageItems] = useState(messages);
   const [refreshing, setRefreshing] = useState(false);
+
+  const onMessageDelete = id => {
+    setMessageItems(messageItems.filter(message => message.id !== id));
+  };
+
+  const [selectedIds, setSelectedIds] = useState([]);
 
   const selectItem = id => {
     setSelectedIds([...selectedIds, id]);
   };
   const deSelectItem = itemId => {
     setSelectedIds(selectedIds.filter(id => id !== itemId));
-  };
-
-  const onMessageDelete = id => {
-    setMessageItems(messageItems.filter(message => message.id !== id));
   };
 
   const handleRefresh = () => {

@@ -14,6 +14,8 @@ import AppButton from './app/components/AppButton';
 import AppCard from './app/components/AppCard';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
+import AppIcon from './app/components/AppIcon';
+import Screen from './app/components/Screen';
 
 export default function App() {
   return (
@@ -25,13 +27,14 @@ export default function App() {
     //   <MessagesScreen />
     //   <StatusBar style='auto' />
     // </SafeAreaView>
-    <>
+    <Screen>
       {/* <ListingDetailsScreen /> */}
       {/* <WelcomeScreen /> */}
       {/* <ImageViewScreen /> */}
-      <MessagesScreen />
+      {/* <MessagesScreen /> */}
+      <AppIcon name='email' size={100} />
       <StatusBar style='auto' />
-    </>
+    </Screen>
   );
 }
 
