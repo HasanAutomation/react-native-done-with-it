@@ -78,6 +78,8 @@ const messages = [
 
 export default function MessagesScreen() {
   const [selectedIds, setSelectedIds] = useState([]);
+  const [messageItems, setMessageItems] = useState(messages);
+  const [refreshing, setRefreshing] = useState(false);
 
   const selectItem = id => {
     setSelectedIds([...selectedIds, id]);
@@ -86,14 +88,22 @@ export default function MessagesScreen() {
     setSelectedIds(selectedIds.filter(id => id !== itemId));
   };
 
-  const onMessageDelete = () => {
-    console.log('Pressed');
+  const onMessageDelete = id => {
+    setMessageItems(messageItems.filter(message => message.id !== id));
+  };
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setMessageItems(messages);
+    setRefreshing(false);
   };
 
   return (
     <Screen>
       <FlatList
-        data={messages}
+        data={messageItems}
+        onRefresh={handleRefresh}
+        refreshing={refreshing}
         keyExtractor={message => message.id.toString()}
         renderItem={({ item }) => (
           <View style={selectedIds.includes(item.id) && styles.highlighted}>
@@ -104,7 +114,9 @@ export default function MessagesScreen() {
               onLongPress={() => selectItem(item.id)}
               onPress={() => deSelectItem(item.id)}
               renderRightActions={() => (
-                <ListItemDeleteAction onPress={onMessageDelete} />
+                <ListItemDeleteAction
+                  onPress={() => onMessageDelete(item.id)}
+                />
               )}
             />
           </View>
