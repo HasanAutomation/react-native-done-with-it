@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: 'white',
     shadowColor: 'black',
-    minHeight: 250,
+    height: 270,
     shadowOpacity: 0.8,
     shadowOffset: { width: 0, height: 3 },
     elevation: 2,
@@ -34,11 +34,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cardTop: {
-    flex: 2,
+    // flex: 3,
+    height: '65%',
     overflow: 'hidden',
+    marginBottom: 5,
   },
   cardBottom: {
-    flex: 1,
+    // flex: 1,
+    height: '35%',
     padding: 10,
   },
   cardImage: {
@@ -47,11 +50,11 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontWeight: '600',
-    fontSize: 21,
+    fontSize: 20,
     color: 'gray',
   },
   cardSubtitle: {
     color: 'silver',
-    fontSize: 20,
+    fontSize: 18,
   },
 });

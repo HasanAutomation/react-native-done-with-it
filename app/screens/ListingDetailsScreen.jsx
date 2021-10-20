@@ -2,23 +2,6 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import ListItem from '../components/ListItem';
 
-const listings = [
-  {
-    title: 'Red Jacket for sale',
-    subTitle: '$100',
-    image: require('../assets/images/jacket.jpg'),
-  },
-  {
-    title: 'Tshirt',
-    subTitle: '$100',
-    image: require('../assets/images/jacket.jpg'),
-  },
-  {
-    title: 'Jeans Pant',
-    subTitle: '$100',
-    image: require('../assets/images/jacket.jpg'),
-  },
-];
 export default function ListingDetailsScreen() {
   return (
     <View>

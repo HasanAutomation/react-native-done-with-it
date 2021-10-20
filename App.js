@@ -18,6 +18,8 @@ import AppIcon from './app/components/AppIcon';
 import Screen from './app/components/Screen';
 import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
+import ListingsScreen from './app/screens/ListingsScreen';
+import colors from './app/config/colors';
 
 export default function App() {
   let Icon = <AppIcon name='email' />;
@@ -37,7 +39,8 @@ export default function App() {
       {/* <MessagesScreen /> */}
       {/* <AppIcon name='email' size={100} /> */}
       {/* <ListItem title='My Title' Icon={Icon} /> */}
-      <AccountScreen />
+      {/* <AccountScreen /> */}
+      <ListingsScreen />
       <StatusBar style='auto' />
     </Screen>
   );
