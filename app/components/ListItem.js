@@ -15,6 +15,7 @@ export default function ListItem({
   subTitle,
   onPress,
   onLongPress,
+  Icon,
   renderRightActions,
 }) {
   return (
@@ -25,12 +26,17 @@ export default function ListItem({
         onLongPress={onLongPress}
       >
         <View style={styles.container}>
-          <Image source={image} style={styles.image} resizeMode='cover' />
+          {image && (
+            <Image source={image} style={styles.image} resizeMode='cover' />
+          )}
+          {Icon}
           <View style={styles.textContainer}>
             <Text style={styles.title}>{title}</Text>
-            <Text numberOfLines={1} style={styles.subTitle}>
-              {subTitle}
-            </Text>
+            {subTitle && (
+              <Text numberOfLines={1} style={styles.subTitle}>
+                {subTitle}
+              </Text>
+            )}
           </View>
         </View>
       </TouchableHighlight>
@@ -43,6 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
+    backgroundColor: colors.white,
   },
   image: {
     width: 80,
@@ -55,6 +62,8 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     padding: 10,
+    justifyContent: 'center',
+    // alignItems: 'center',
   },
   title: {
     fontSize: 21,
@@ -63,7 +72,7 @@ const styles = StyleSheet.create({
 });
 
 ListItem.defaultProps = {
-  image: require('../assets/images/jacket.jpg'),
-  title: 'Hasan Ali',
-  subTitle: '5 Listings',
+  // image: require('../assets/images/jacket.jpg'),
+  // title: 'Hasan Ali',
+  // subTitle: '5 Listings',
 };

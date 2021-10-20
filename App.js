@@ -16,8 +16,11 @@ import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import AppIcon from './app/components/AppIcon';
 import Screen from './app/components/Screen';
+import ListItem from './app/components/ListItem';
+import AccountScreen from './app/screens/AccountScreen';
 
 export default function App() {
+  let Icon = <AppIcon name='email' />;
   return (
     // <SafeAreaView style={styles.container}>
     //   {/* <WelcomeScreen /> */}
@@ -32,7 +35,9 @@ export default function App() {
       {/* <WelcomeScreen /> */}
       {/* <ImageViewScreen /> */}
       {/* <MessagesScreen /> */}
-      <AppIcon name='email' size={100} />
+      {/* <AppIcon name='email' size={100} /> */}
+      {/* <ListItem title='My Title' Icon={Icon} /> */}
+      <AccountScreen />
       <StatusBar style='auto' />
     </Screen>
   );
