@@ -20,6 +20,7 @@ import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import colors from './app/config/colors';
+import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
   let Icon = <AppIcon name='email' />;
@@ -40,7 +41,8 @@ export default function App() {
       {/* <AppIcon name='email' size={100} /> */}
       {/* <ListItem title='My Title' Icon={Icon} /> */}
       {/* <AccountScreen /> */}
-      <ListingsScreen />
+      {/* <ListingsScreen /> */}
+      <AppTextInput placeholder='Username' icon='email' />
       <StatusBar style='auto' />
     </Screen>
   );
