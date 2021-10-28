@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
   ToastAndroid,
+  Switch,
 } from 'react-native';
 import Constants from 'expo-constants';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -21,9 +22,17 @@ import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import colors from './app/config/colors';
 import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
+
+const categories = [
+  { label: 'Furniture', value: 1 },
+  { label: 'Clothing', value: 2 },
+  { label: 'Cameras', value: 3 },
+];
 
 export default function App() {
-  let Icon = <AppIcon name='email' />;
+  const [category, setCategory] = useState(categories[0]);
+
   return (
     // <SafeAreaView style={styles.container}>
     //   {/* <WelcomeScreen /> */}
@@ -42,7 +51,14 @@ export default function App() {
       {/* <ListItem title='My Title' Icon={Icon} /> */}
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
-      <AppTextInput placeholder='Username' icon='email' />
+      {/* <AppTextInput placeholder='Username' icon='email' /> */}
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={item => setCategory(item)}
+        placeholder='Category'
+        icon='apps'
+        items={categories}
+      />
       <StatusBar style='auto' />
     </Screen>
   );
