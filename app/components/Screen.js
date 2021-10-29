@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
     flex: 1,
-    // padding: 20,
+    backgroundColor: 'white',
+    padding: 20,
   },
 });
 

@@ -3,13 +3,22 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 
-export default function AppTextInput({ icon, ...rest }) {
+export default function AppTextInput({
+  icon,
+  style,
+  iconRight,
+  onPress = null,
+  ...rest
+}) {
   return (
-    <View style={styles.textInputContainer}>
+    <View style={[styles.textInputContainer, style]}>
       {icon && (
         <MaterialCommunityIcons name={icon} size={23} color={colors.medium} />
       )}
       <TextInput style={styles.textInput} {...rest} />
+      {iconRight && (
+        <MaterialCommunityIcons name={iconRight} size={23} onPress={onPress} />
+      )}
     </View>
   );
 }

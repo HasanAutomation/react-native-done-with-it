@@ -23,6 +23,7 @@ import ListingsScreen from './app/screens/ListingsScreen';
 import colors from './app/config/colors';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -52,13 +53,14 @@ export default function App() {
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
       {/* <AppTextInput placeholder='Username' icon='email' /> */}
-      <AppPicker
+      {/* <AppPicker
         selectedItem={category}
         onSelectItem={item => setCategory(item)}
         placeholder='Category'
         icon='apps'
         items={categories}
-      />
+      /> */}
+      <LoginScreen />
       <StatusBar style='auto' />
     </Screen>
   );
@@ -67,7 +69,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f4f4',
+    // backgroundColor: '#f8f4f4',
     paddingTop: Constants.statusBarHeight,
     padding: 20,
     // alignItems: 'center',
