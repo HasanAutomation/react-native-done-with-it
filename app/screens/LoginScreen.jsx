@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Formik } from 'formik';
 import * as Yup from 'yup';
-import AppButton from '../components/AppButton';
 import { Image, StyleSheet } from 'react-native';
 import AppFormField from '../components/AppFormField';
 import SubmitButton from '../components/SubmitButton';
+import AppForm from '../components/AppForm';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -21,35 +20,31 @@ export default function LoginScreen() {
         style={styles.logo}
       />
 
-      <Formik
+      <AppForm
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
         onSubmit={values => console.log(values)}
       >
-        {({ handleSubmit }) => (
-          <>
-            <AppFormField
-              name='email'
-              autoCapitalize='none'
-              keyboardType='email-address'
-              textContentType='emailAddress'
-              icon='email'
-              placeholder='Email'
-              style={styles.textInput}
-            />
-            <AppFormField
-              name='password'
-              icon='lock'
-              iconRight={showPassword ? 'eye' : 'eye-off'}
-              style={styles.textInput}
-              placeholder='Password'
-              onPress={() => setShowPassword(!showPassword)}
-              secureTextEntry={showPassword}
-            />
-            <SubmitButton title='LOGIN' />
-          </>
-        )}
-      </Formik>
+        <AppFormField
+          name='email'
+          autoCapitalize='none'
+          keyboardType='email-address'
+          textContentType='emailAddress'
+          icon='email'
+          placeholder='Email'
+          style={styles.textInput}
+        />
+        <AppFormField
+          name='password'
+          icon='lock'
+          iconRight={showPassword ? 'eye' : 'eye-off'}
+          style={styles.textInput}
+          placeholder='Password'
+          onPress={() => setShowPassword(!showPassword)}
+          secureTextEntry={showPassword}
+        />
+        <SubmitButton title='LOGIN' />
+      </AppForm>
     </>
   );
 }
