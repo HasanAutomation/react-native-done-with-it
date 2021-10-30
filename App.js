@@ -24,6 +24,7 @@ import colors from './app/config/colors';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
+import RegisterScreen from './app/screens/RegisterScreen';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -60,7 +61,8 @@ export default function App() {
         icon='apps'
         items={categories}
       /> */}
-      <LoginScreen />
+      {/* <LoginScreen /> */}
+      <RegisterScreen />
       <StatusBar style='auto' />
     </Screen>
   );

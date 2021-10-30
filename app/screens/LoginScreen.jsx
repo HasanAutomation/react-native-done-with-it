@@ -11,7 +11,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function LoginScreen() {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <>
       <Image
@@ -41,7 +41,7 @@ export default function LoginScreen() {
           style={styles.textInput}
           placeholder='Password'
           onPress={() => setShowPassword(!showPassword)}
-          secureTextEntry={showPassword}
+          secureTextEntry={!showPassword}
         />
         <SubmitButton title='LOGIN' />
       </AppForm>
