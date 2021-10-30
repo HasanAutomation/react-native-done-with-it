@@ -13,7 +13,6 @@ const validationSchema = Yup.object().shape({
 
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState(true);
-
   return (
     <>
       <Image
