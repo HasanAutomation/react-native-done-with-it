@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import AppButton from '../components/AppButton';
 import { Image, StyleSheet } from 'react-native';
 import AppFormField from '../components/AppFormField';
+import SubmitButton from '../components/SubmitButton';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -45,7 +46,7 @@ export default function LoginScreen() {
               onPress={() => setShowPassword(!showPassword)}
               secureTextEntry={showPassword}
             />
-            <AppButton title='Login' onPress={handleSubmit} />
+            <SubmitButton title='LOGIN' />
           </>
         )}
       </Formik>
