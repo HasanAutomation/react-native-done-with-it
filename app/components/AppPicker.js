@@ -10,6 +10,7 @@ export default function AppPicker({
   items,
   placeholder,
   selectedItem,
+  style,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -19,7 +20,7 @@ export default function AppPicker({
   };
 
   return (
-    <View style={styles.textInputContainer}>
+    <View style={[styles.textInputContainer, style]}>
       {icon && (
         <MaterialCommunityIcons name={icon} size={23} color={colors.medium} />
       )}
