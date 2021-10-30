@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
-import { Image, StyleSheet, Text } from 'react-native';
-import ErrorMessage from '../components/ErrorMessage';
+import { Image, StyleSheet } from 'react-native';
+import AppFormField from '../components/AppFormField';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -26,32 +25,25 @@ export default function LoginScreen() {
         validationSchema={validationSchema}
         onSubmit={values => console.log(values)}
       >
-        {({ handleChange, handleSubmit, errors, touched, setFieldTouched }) => (
+        {({ handleSubmit }) => (
           <>
-            <AppTextInput
+            <AppFormField
+              name='email'
               autoCapitalize='none'
               keyboardType='email-address'
-              onBlur={() => setFieldTouched('email')}
               textContentType='emailAddress'
               icon='email'
               placeholder='Email'
-              onChangeText={handleChange('email')}
               style={styles.textInput}
             />
-            <ErrorMessage error={errors['email']} visible={touched['email']} />
-            <AppTextInput
+            <AppFormField
+              name='password'
               icon='lock'
-              onBlur={() => setFieldTouched('password')}
               iconRight={showPassword ? 'eye' : 'eye-off'}
               style={styles.textInput}
               placeholder='Password'
-              onChangeText={handleChange('password')}
               onPress={() => setShowPassword(!showPassword)}
               secureTextEntry={showPassword}
-            />
-            <ErrorMessage
-              error={errors['password']}
-              visible={touched['password']}
             />
             <AppButton title='Login' onPress={handleSubmit} />
           </>
