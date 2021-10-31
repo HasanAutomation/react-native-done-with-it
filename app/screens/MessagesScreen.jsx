@@ -87,6 +87,8 @@ export default function MessagesScreen() {
   const [selectedIds, setSelectedIds] = useState([]);
 
   const selectItem = id => {
+    // console.log(id);
+    console.log(selectedIds);
     setSelectedIds([...selectedIds, id]);
   };
   const deSelectItem = itemId => {
@@ -104,6 +106,7 @@ export default function MessagesScreen() {
       <FlatList
         data={messageItems}
         onRefresh={handleRefresh}
+        showsVerticalScrollIndicator={false}
         refreshing={refreshing}
         keyExtractor={message => message.id.toString()}
         renderItem={({ item }) => (
