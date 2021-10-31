@@ -6,10 +6,13 @@ import PickerItem from './PickerItem';
 
 export default function AppPicker({
   icon,
+  numberOfColumns,
   onSelectItem,
   items,
+  PickerItemComponent = PickerItem,
   placeholder,
   selectedItem,
+  width = '100%',
   style,
 }) {
   const [open, setOpen] = useState(false);
@@ -20,7 +23,7 @@ export default function AppPicker({
   };
 
   return (
-    <View style={[styles.textInputContainer, style]}>
+    <View style={[styles.textInputContainer, style, { width }]}>
       {icon && (
         <MaterialCommunityIcons name={icon} size={23} color={colors.medium} />
       )}
@@ -41,9 +44,13 @@ export default function AppPicker({
           <Modal animationType='slide' visible={open}>
             <FlatList
               data={items}
+              numColumns={numberOfColumns}
               keyExtractor={item => item.value.toString()}
               renderItem={({ item }) => (
-                <PickerItem onPress={() => onSelect(item)} label={item.label} />
+                <PickerItemComponent
+                  onPress={() => onSelect(item)}
+                  item={item}
+                />
               )}
             />
           </Modal>

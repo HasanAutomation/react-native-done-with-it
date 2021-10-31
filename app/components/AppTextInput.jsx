@@ -8,10 +8,11 @@ export default function AppTextInput({
   style,
   iconRight,
   onPress = null,
+  width = '100%',
   ...rest
 }) {
   return (
-    <View style={[styles.textInputContainer, style]}>
+    <View style={[styles.textInputContainer, style, { width }]}>
       {icon && (
         <MaterialCommunityIcons name={icon} size={23} color={colors.medium} />
       )}

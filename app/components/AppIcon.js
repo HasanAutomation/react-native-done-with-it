@@ -6,6 +6,7 @@ function AppIcon({
   name,
   size = 30,
   backgroundColor = 'red',
+  onPress,
   iconColor = 'white',
 }) {
   return (
@@ -19,7 +20,12 @@ function AppIcon({
         justifyContent: 'center',
       }}
     >
-      <MaterialCommunityIcons name={name} size={size * 0.5} color={iconColor} />
+      <MaterialCommunityIcons
+        onPress={onPress}
+        name={name}
+        size={size * 0.5}
+        color={iconColor}
+      />
     </View>
   );
 }

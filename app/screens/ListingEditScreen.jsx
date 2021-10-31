@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import AppForm from '../components/AppForm';
 import AppFormField from '../components/AppFormField';
 import AppFormPicker from '../components/AppFormPicker';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 import SubmitButton from '../components/SubmitButton';
 
 const validationSchema = Yup.object().shape({
@@ -14,9 +15,9 @@ const validationSchema = Yup.object().shape({
 });
 
 const items = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Chair', value: 2 },
-  { label: 'Tv', value: 3 },
+  { label: 'Furniture', value: 1, icon: 'apps', backgroundColor: 'green' },
+  { label: 'Chair', value: 2, icon: 'email', backgroundColor: 'pink' },
+  { label: 'Tv', value: 3, icon: 'lock', backgroundColor: 'blue' },
 ];
 
 export default function ListingEditScreen() {
@@ -35,14 +36,18 @@ export default function ListingEditScreen() {
         name='price'
         placeholder='price'
         style={styles.inputBox}
+        width={120}
         keyboardType='numeric'
       />
       <AppFormPicker
         name='category'
+        numberOfColumns={3}
         items={items}
         selectedItem={category}
         onSelectItem={item => setCategory(item)}
+        PickerItemComponent={CategoryPickerItem}
         placeholder='Category'
+        width='50%'
         style={styles.inputBox}
       />
       <AppFormField

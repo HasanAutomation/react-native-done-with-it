@@ -8,11 +8,11 @@ import MessagesScreen from './app/screens/MessagesScreen';
 
 export default function App() {
   return (
-    <>
-      {/* <ListingEditScreen /> */}
-      <MessagesScreen />
+    <Screen>
+      <ListingEditScreen />
+      {/* <MessagesScreen /> */}
       <StatusBar style='auto' />
-    </>
+    </Screen>
   );
 }
 
