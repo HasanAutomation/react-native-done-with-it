@@ -87,8 +87,6 @@ export default function MessagesScreen() {
   const [selectedIds, setSelectedIds] = useState([]);
 
   const selectItem = id => {
-    // console.log(id);
-    console.log(selectedIds);
     setSelectedIds([...selectedIds, id]);
   };
   const deSelectItem = itemId => {
