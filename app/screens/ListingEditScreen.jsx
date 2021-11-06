@@ -8,12 +8,15 @@ import AppFormPicker from '../components/AppFormPicker';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/FormImagePicker';
 import SubmitButton from '../components/SubmitButton';
+import useLocation from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().moreThan(1).lessThan(10000).label('Price'),
   category: Yup.object().nullable().required().label('Category'),
-  images: Yup.array().min(1).max(3).label('Image'),
+  images: Yup.array()
+    .min(1, 'Please select at least one image')
+    .max(3, 'You can select maximum 3 images'),
 });
 
 const items = [
@@ -24,6 +27,8 @@ const items = [
 
 export default function ListingEditScreen() {
   const [category, setCategory] = useState('');
+
+  const { location } = useLocation();
 
   return (
     <AppForm
