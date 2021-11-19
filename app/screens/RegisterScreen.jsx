@@ -5,6 +5,8 @@ import AppForm from '../components/AppForm';
 import AppFormField from '../components/AppFormField';
 import SubmitButton from '../components/SubmitButton';
 
+import Screen from '../components/Screen';
+
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   email: Yup.string().required().email().label('Email'),
@@ -15,36 +17,38 @@ export default function RegisterScreen() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <AppForm
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={values => console.log(values)}
-    >
-      <AppFormField
-        icon='face-profile'
-        style={styles.inputBox}
-        name='name'
-        placeholder='Name'
-      />
-      <AppFormField
-        icon='email'
-        style={styles.inputBox}
-        textContentType='emailAddress'
-        keyboardType='email-address'
-        name='email'
-        placeholder='Email'
-      />
-      <AppFormField
-        onPress={() => setShowPassword(!showPassword)}
-        iconRight={showPassword ? 'eye' : 'eye-off'}
-        icon='lock'
-        style={styles.inputBox}
-        name='password'
-        secureTextEntry={!showPassword}
-        placeholder='Password'
-      />
-      <SubmitButton title='REGISTER' />
-    </AppForm>
+    <Screen>
+      <AppForm
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={validationSchema}
+        onSubmit={values => console.log(values)}
+      >
+        <AppFormField
+          icon='face-profile'
+          style={styles.inputBox}
+          name='name'
+          placeholder='Name'
+        />
+        <AppFormField
+          icon='email'
+          style={styles.inputBox}
+          textContentType='emailAddress'
+          keyboardType='email-address'
+          name='email'
+          placeholder='Email'
+        />
+        <AppFormField
+          onPress={() => setShowPassword(!showPassword)}
+          iconRight={showPassword ? 'eye' : 'eye-off'}
+          icon='lock'
+          style={styles.inputBox}
+          name='password'
+          secureTextEntry={!showPassword}
+          placeholder='Password'
+        />
+        <SubmitButton title='REGISTER' />
+      </AppForm>
+    </Screen>
   );
 }
 

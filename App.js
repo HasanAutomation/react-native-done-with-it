@@ -1,29 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
-import Screen from './app/components/Screen';
-import ListingEditScreen from './app/screens/ListingEditScreen';
-import MessagesScreen from './app/screens/MessagesScreen';
-import AppImagePicker from './app/components/AppImagePicker';
-import AppImageList from './app/components/AppImageList';
+import { NavigationContainer } from '@react-navigation/native';
+import { HomeTabNavigator } from './app/navigation/Tab/HomeNavigator';
+import { AuthNavigator } from './app/navigation/Stack/AuthNavigator';
+import navigationTheme from './app/navigation/navigationTheme';
+
+const loggedIn = true;
 
 export default function App() {
   return (
-    <Screen>
-      <ListingEditScreen />
-      {/* <AppImagePicker /> */}
-      {/* <MessagesScreen /> */}
-      {/* <AppImageList /> */}
+    <NavigationContainer theme={navigationTheme}>
+      {loggedIn ? <HomeTabNavigator /> : <AuthNavigator />}
       <StatusBar style='auto' />
-    </Screen>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Constants.statusBarHeight,
-    padding: 20,
-  },
-});

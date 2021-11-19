@@ -2,7 +2,11 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import ListItem from '../components/ListItem';
 
-export default function ListingDetailsScreen() {
+export default function ListingDetailsScreen({ route }) {
+  const {
+    item: { image, subTitle, title },
+  } = route.params;
+
   return (
     <View>
       <Image
@@ -11,11 +15,15 @@ export default function ListingDetailsScreen() {
         style={styles.image}
       />
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>Red Jacket for sale</Text>
-        <Text style={styles.price}>$100</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.price}>{subTitle}</Text>
       </View>
       <View style={styles.owner}>
-        <ListItem />
+        <ListItem
+          title='Hasan'
+          subTitle='5 Listings'
+          image={image || require('../assets/images/jacket.jpg')}
+        />
       </View>
     </View>
   );

@@ -14,6 +14,7 @@ const menuItems = [
       name: 'format-list-bulleted',
       backgroundColor: colors.primary,
     },
+    path: '',
   },
   {
     title: 'My messsages',
@@ -21,10 +22,11 @@ const menuItems = [
       name: 'email',
       backgroundColor: colors.secondary,
     },
+    path: 'Messages',
   },
 ];
 
-function AccountScreen() {
+function AccountScreen({ navigation }) {
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
@@ -42,6 +44,7 @@ function AccountScreen() {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
+              onPress={() => item.path && navigation.navigate(item.path)}
               Icon={
                 <AppIcon
                   name={item.icon.name}

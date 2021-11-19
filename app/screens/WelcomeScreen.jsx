@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import AppButton from '../components/AppButton';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   function onLogin() {
-    ToastAndroid.show('THIS IS LOGIN', ToastAndroid.SHORT);
+    navigation.navigate('Login');
   }
   function onSignUp() {
-    ToastAndroid.show('THIS IS SIGNUP', ToastAndroid.SHORT);
+    navigation.navigate('Register');
   }
 
   return (

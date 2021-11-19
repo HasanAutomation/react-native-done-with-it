@@ -100,7 +100,7 @@ export default function MessagesScreen() {
   };
 
   return (
-    <Screen>
+    <>
       <FlatList
         data={messageItems}
         onRefresh={handleRefresh}
@@ -125,7 +125,7 @@ export default function MessagesScreen() {
         )}
         ItemSeparatorComponent={ListItemSeparator}
       />
-    </Screen>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import { Image, StyleSheet } from 'react-native';
 import AppFormField from '../components/AppFormField';
 import SubmitButton from '../components/SubmitButton';
 import AppForm from '../components/AppForm';
+import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -13,7 +14,7 @@ const validationSchema = Yup.object().shape({
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <>
+    <Screen>
       <Image
         source={require('../assets/images/logo-red.png')}
         resizeMode='cover'
@@ -45,7 +46,7 @@ export default function LoginScreen() {
         />
         <SubmitButton title='LOGIN' />
       </AppForm>
-    </>
+    </Screen>
   );
 }
 

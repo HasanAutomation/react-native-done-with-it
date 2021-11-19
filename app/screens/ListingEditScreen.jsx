@@ -7,6 +7,7 @@ import AppFormField from '../components/AppFormField';
 import AppFormPicker from '../components/AppFormPicker';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/FormImagePicker';
+import Screen from '../components/Screen';
 import SubmitButton from '../components/SubmitButton';
 import useLocation from '../hooks/useLocation';
 
@@ -31,48 +32,54 @@ export default function ListingEditScreen() {
   const { location } = useLocation();
 
   return (
-    <AppForm
-      initialValues={{
-        title: '',
-        price: '',
-        category: null,
-        description: '',
-        images: [],
-      }}
-      validationSchema={validationSchema}
-      onSubmit={values => {
-        console.log(values);
-      }}
-    >
-      <FormImagePicker name='images' />
+    <Screen>
+      <AppForm
+        initialValues={{
+          title: '',
+          price: '',
+          category: null,
+          description: '',
+          images: [],
+        }}
+        validationSchema={validationSchema}
+        onSubmit={values => {
+          console.log(values);
+        }}
+      >
+        <FormImagePicker name='images' />
 
-      <AppFormField name='title' placeholder='Title' style={styles.inputBox} />
-      <AppFormField
-        name='price'
-        placeholder='price'
-        style={styles.inputBox}
-        width={120}
-        keyboardType='numeric'
-      />
-      <AppFormPicker
-        name='category'
-        numberOfColumns={3}
-        items={items}
-        selectedItem={category}
-        onSelectItem={item => setCategory(item)}
-        PickerItemComponent={CategoryPickerItem}
-        placeholder='Category'
-        width='50%'
-        style={styles.inputBox}
-      />
-      <AppFormField
-        name='description'
-        numberOfLines={3}
-        placeholder='Description'
-        style={styles.inputBox}
-      />
-      <SubmitButton title='POST' />
-    </AppForm>
+        <AppFormField
+          name='title'
+          placeholder='Title'
+          style={styles.inputBox}
+        />
+        <AppFormField
+          name='price'
+          placeholder='price'
+          style={styles.inputBox}
+          width={120}
+          keyboardType='numeric'
+        />
+        <AppFormPicker
+          name='category'
+          numberOfColumns={3}
+          items={items}
+          selectedItem={category}
+          onSelectItem={item => setCategory(item)}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder='Category'
+          width='50%'
+          style={styles.inputBox}
+        />
+        <AppFormField
+          name='description'
+          numberOfLines={3}
+          placeholder='Description'
+          style={styles.inputBox}
+        />
+        <SubmitButton title='POST' />
+      </AppForm>
+    </Screen>
   );
 }
 

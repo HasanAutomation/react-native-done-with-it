@@ -1,17 +1,25 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableNativeFeedback,
+} from 'react-native';
 
-export default function AppCard({ image, title, subTitle }) {
+export default function AppCard({ image, title, subTitle, onPress }) {
   return (
-    <View style={styles.cardContainer}>
-      <View style={styles.cardTop}>
-        <Image style={styles.cardImage} source={image} resizeMode='cover' />
+    <TouchableNativeFeedback onPress={onPress}>
+      <View style={styles.cardContainer}>
+        <View style={styles.cardTop}>
+          <Image style={styles.cardImage} source={image} resizeMode='cover' />
+        </View>
+        <View style={styles.cardBottom}>
+          <Text style={styles.cardTitle}>{title}</Text>
+          <Text style={styles.cardSubtitle}>{subTitle}</Text>
+        </View>
       </View>
-      <View style={styles.cardBottom}>
-        <Text style={styles.cardTitle}>{title}</Text>
-        <Text style={styles.cardSubtitle}>{subTitle}</Text>
-      </View>
-    </View>
+    </TouchableNativeFeedback>
   );
 }
 
