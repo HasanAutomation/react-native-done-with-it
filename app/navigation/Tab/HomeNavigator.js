@@ -2,9 +2,9 @@ import React from 'react';
 import { FeedNavigator } from '../Stack/FeedNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import AccountScreen from '../../screens/AccountScreen';
 import ListingEditScreen from '../../screens/ListingEditScreen';
 import { AccountNavigator } from '../Stack/AccountNavigator';
+import NewListingButton from '../NewListingButton';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,8 +12,6 @@ export const HomeTabNavigator = () => (
   <Tab.Navigator
     screenOptions={{
       headerShown: false,
-      tabBarActiveBackgroundColor: '#eee',
-      tabBarActiveTintColor: 'coral',
     }}
   >
     <Tab.Screen
@@ -25,7 +23,17 @@ export const HomeTabNavigator = () => (
         ),
       }}
     />
-    <Tab.Screen name='ListingsEdit' component={ListingEditScreen} />
+    <Tab.Screen
+      name='ListingsEdit'
+      component={ListingEditScreen}
+      options={({ navigation }) => ({
+        tabBarButton: () => (
+          <NewListingButton
+            onPress={() => navigation.navigate('ListingsEdit')}
+          />
+        ),
+      })}
+    />
     <Tab.Screen
       name='Account'
       component={AccountNavigator}
